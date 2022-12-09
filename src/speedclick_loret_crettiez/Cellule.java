@@ -8,30 +8,21 @@ package speedclick_loret_crettiez;
  *
  * @author benja
  */
-public class Bouton {
+public class Cellule {
     String Couleur;
-    boolean Presence;
+    private Bouton boutonCourant;
     
-    public Bouton (String Color) {
+    public Cellule (String Color) {
         Couleur = Color;
-        this.Presence = false;
+        this.boutonCourant = null;
     }
     
     public boolean presenceBouton () {
-        if (Presence == true) {
-            return true;
-        } else {
+        if (boutonCourant == null) {
             return false;
+        } else {
+            return true;
         }
     }
-    
-    public void afficherBouton () {
-        Presence = true;
-    }
-    
-    public void disparaitreBouton (){
-        Presence = false;
-    }
-    
-    
 }
+
