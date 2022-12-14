@@ -17,12 +17,5 @@ public class Cellule {
         this.boutonCourant = null;
     }
     
-    public boolean presenceBouton () {
-        if (boutonCourant == null) {
-            return false;
-        } else {
-            return true;
-        }
-    }
 }
 

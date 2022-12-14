@@ -9,20 +9,16 @@ package speedclick_loret_crettiez;
  * @author benja
  */
 public class Bouton {
-    String Couleur;
     boolean Presence;
+    boolean Click;
     
-    public Bouton (String Color) {
-        Couleur = Color;
+    public Bouton () {
         this.Presence = false;
+        this.Click = false;
     }
     
     public boolean presenceBouton () {
-        if (Presence == true) {
-            return true;
-        } else {
-            return false;
-        }
+        return Presence;
     }
     
     public void afficherBouton () {
@@ -33,5 +29,12 @@ public class Bouton {
         Presence = false;
     }
     
+    public void activation () {
+        Click = true;
+    }
+    
+    public void desactivation () {
+        Click = false;
+    }
     
 }
