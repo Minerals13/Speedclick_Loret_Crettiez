@@ -17,4 +17,6 @@ public class Speedclick_Loret_Crettiez {
         // TODO code application logic here
     } String lardon;
     
+    
+    
 }
