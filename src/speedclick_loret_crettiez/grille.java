@@ -16,23 +16,20 @@ import java.util.Random;
 public class grille {
     int ligne;
     int colonne;
-    Bouton [][] matrice;
+    Bouton [][] matrice;  //On appellera notre grille de jeu intéractive, la matrice, et elle sera composé d'objet de type bouton
+
     
-    public grille (int lig, int col) {
+    public grille (int lig, int col) {  //Création d'une grille de taille donnée en paramètre
         ligne = lig;
         colonne =  col;
-        matrice = new Bouton [ligne][colonne];
-    }
-    
-    public void CreationGrille () {
         for (int i = 0; i <= ligne; i++) {
             for (int j = 0; j <= colonne; j++) {
                 matrice[i][j] = new Bouton();
             }
-        }
-    }
-    
-    
+        }        
+    }                 
+   
+
     public void RandomBouton () {
         int C = 0;
         int L = 0;
@@ -46,4 +43,18 @@ public class grille {
         matrice[ligne][colonne].activation();
         matrice[ligne][colonne].disparaitreBouton();
     }
-}
+    
+    public void afficherMatriceSurConsole(int lig, int col) {
+        ligne = lig;
+        colonne =  col;
+        for (int i=0;i<=ligne;i++) {
+            for (int j=0;j<=col;j++) {
+                System.out.print(matrice[i][j]+" ");
+            }
+        
+        }
+            
+    }
+    
+
+    }
