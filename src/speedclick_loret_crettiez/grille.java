@@ -39,6 +39,15 @@ public class grille {
         matrice[L][C].afficherBouton();  
     }
     
+    public HazardBouton (int a, int b) {
+        Tailleligne=a;
+        TailleColonne=b;
+        Random random = new Random();
+        int QuelleLigne;
+        int QuelleColonne;
+        QuelleLigne = random.nextInt(TailleLigne+1);
+    
+    }
     public void UtilisationCase () {
         matrice[ligne][colonne].activation();
         matrice[ligne][colonne].disparaitreBouton();
