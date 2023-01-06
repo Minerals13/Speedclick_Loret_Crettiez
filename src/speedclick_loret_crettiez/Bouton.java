@@ -10,11 +10,9 @@ package speedclick_loret_crettiez;
  */
 public class Bouton {
     boolean Presence;
-    boolean Click;
     
     public Bouton () {
         this.Presence = false;
-        this.Click = false;
     }
     
     public boolean presenceBouton () {
@@ -27,14 +25,17 @@ public class Bouton {
     
     public void disparaitreBouton (){
         Presence = false;
-    }
+    }   
     
-    public void activation () {
-        Click = true;
+    @Override
+    public String toString() {
+        String retourner = null;
+        if (presenceBouton() == true) {
+            retourner = "X";
+        }
+        if (presenceBouton() == false) {
+            retourner = "O";
+        }
+        return retourner;
     }
-    
-    public void desactivation () {
-        Click = false;
-    }
-    
 }
