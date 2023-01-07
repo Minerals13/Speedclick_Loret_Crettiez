@@ -77,5 +77,11 @@ public class grille {
         }
     }
     
+    
+    public void PresenceBouton (int LigneON,int ColonneON) {  //Permets de placer notre bouton aux coordonnées données par LigneAllumee et ColonneAllumee
+        matrice[LigneON][ColonneON].presenceBouton();
+        
+
+    }
 
     }
