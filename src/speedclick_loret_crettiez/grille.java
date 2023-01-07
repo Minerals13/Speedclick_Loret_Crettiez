@@ -30,34 +30,43 @@ public class grille {
     }                 
    
 
-    public void RandomBouton () {
-        int C = 0;
-        int L = 0;
-        Random ab = new Random ();
-        C = ab.nextInt(colonne);
-        L = ab.nextInt(ligne);
-        matrice[L][C].afficherBouton();  
+    //public void RandomBouton () {
+      //  int C = 0;
+        //int L = 0;
+        //Random ab = new Random ();
+        //C = ab.nextInt(colonne);
+        //L = ab.nextInt(ligne);
+       // matrice[L][C].afficherBouton();  
+   // }
+    
+    public int LigneAllumee (int a) {  //Permets de déterminer un entier au hasard, qui correspond à un indice de ligne dans notre matrice pour notre bouton qui s'allume
+        int TailleLigne=a;
+        Random random = new Random(); 
+        int LigneON;
+        LigneON = random.nextInt(TailleLigne+1);         //On choisit un entier entre 0 et la taille de la matrice+1. Cette taille est donnée par l'utilisateur en entrée de programme      
+    return LigneON; //On retourne l'indice de ligne du bouton allumé
+    
     }
     
-    public HazardBouton (int a, int b) {
-        Tailleligne=a;
-        TailleColonne=b;
+    public int ColonneAllumee (int b) { //Au même titre que LigneAllumee, ColonneAllumee permets de donner l'indice de la colonne du bouton qu'on va allumer
+        int TailleColonne=b;
         Random random = new Random();
-        int QuelleLigne;
-        int QuelleColonne;
-        QuelleLigne = random.nextInt(TailleLigne+1);
-    
+        int ColonneON;
+        ColonneON = random.nextInt(TailleColonne+1);
+    return ColonneON; //On retourne l'indice de colonne du bouton allumé
     }
+            
+            
     public void UtilisationCase () {
         matrice[ligne][colonne].activation();
         matrice[ligne][colonne].disparaitreBouton();
     }
     
-    public void afficherMatriceSurConsole(int lig, int col) {
-        ligne = lig;
-        colonne =  col;
+    public void afficherMatriceSurConsole(int a, int b) {
+        ligne = a;
+        colonne =  b;
         for (int i=0;i<=ligne;i++) {
-            for (int j=0;j<=col;j++) {
+            for (int j=0;j<=colonne;j++) {
                 System.out.print(matrice[i][j]+" ");
             }
         
