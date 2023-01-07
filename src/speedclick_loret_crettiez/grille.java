@@ -78,10 +78,14 @@ public class grille {
     }
     
     
-    public void PresenceBouton (int LigneON,int ColonneON) {  //Permets de placer notre bouton aux coordonnées données par LigneAllumee et ColonneAllumee
-        matrice[LigneON][ColonneON].presenceBouton();
-        
-
+    
+    public boolean PresenceBouton (int LigneON,int ColonneON) {  //Permets de placer notre bouton aux coordonnées données par LigneAllumee et ColonneAllumee
+        if (matrice[LigneON][ColonneON].presenceBouton()==true) {
+            return true;
+        } else {
+            return false;
+        }
+    
     }
 
     }
