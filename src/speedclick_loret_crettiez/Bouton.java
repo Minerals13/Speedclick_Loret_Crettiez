@@ -19,9 +19,11 @@ public class Bouton {
         return Presence;
     }
     
-    public void afficherBouton () {
-        Presence = true;
+    public void placerBouton () {
+        Presence =true;
     }
+    
+
     
     public void disparaitreBouton (){
         Presence = false;

@@ -57,10 +57,10 @@ public class grille {
     }
             
             
-    public void UtilisationCase () {
-        matrice[ligne][colonne].afficherBouton();
-        matrice[ligne][colonne].disparaitreBouton();
-    }
+   // public void UtilisationCase () {
+   //     matrice[ligne][colonne].afficherBouton();
+    //    matrice[ligne][colonne].disparaitreBouton();
+    //}
     
     public void afficherMatriceSurConsole(int a, int b) { //Méthode permettant d'afficher la matrice sur la console avec le bouton allumé
         ligne = a;
@@ -78,8 +78,12 @@ public class grille {
     }
     
     
+    public void PlacerBouton (int LigneON,int ColonneON) {  //Permets de placer notre bouton aux coordonnées données par LigneAllumee et ColonneAllumee
+        matrice[LigneON][ColonneON].placerBouton();
+    }
     
-    public boolean PresenceBouton (int LigneON,int ColonneON) {  //Permets de placer notre bouton aux coordonnées données par LigneAllumee et ColonneAllumee
+    
+    public boolean PresenceBouton (int LigneON,int ColonneON) {  
         if (matrice[LigneON][ColonneON].presenceBouton()==true) {
             return true;
         } else {
