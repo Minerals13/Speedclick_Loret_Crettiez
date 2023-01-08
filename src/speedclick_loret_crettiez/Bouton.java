@@ -9,60 +9,60 @@ package speedclick_loret_crettiez;
  * @author benja
  */
 public class Bouton {
-    boolean Presence;
-    boolean PresenceMauvais;
+    boolean Presence;  //Variable du bon bouton
+    boolean PresenceMauvais; //Variable du mauvais bouton
     
     public Bouton () {
-        this.Presence = false;
+        this.Presence = false; //On les initialise à false
         this.PresenceMauvais = false;
     }
     
     public boolean DetectionBouton () {
-        return Presence;
+        return Presence; //Retourne vrai ou faux selon la possible présence du bouton
     }
     
     public void PlacerBouton () {
-        Presence =true;
+        Presence =true; //Place le bon bouton
     }
     
     public void DisparaitreBouton (){
-        Presence = false;
+        Presence = false; //Fait disparaitre le bon bouton
     } 
     
     public boolean DetectionMauvaisBouton() {
-        return PresenceMauvais;
+        return PresenceMauvais; //Retourne vrai ou faux selon la possible présence du bouton
     }   
     
     public void PlacerMauvaisBouton () {
-        PresenceMauvais =true;
+        PresenceMauvais =true; //Place un mauvais bouton
     }
     
     public void DisparaitreMauvaisBouton (){
-        PresenceMauvais = false;
+        PresenceMauvais = false; //Place un mauvais bouton
     } 
     
     @Override
     public String toString() {
         String retourner = null;
         if (DetectionBouton() == true) {
-            retourner = "X";
+            retourner = "X"; //Si il y a un bon bouton
         }
         if (DetectionBouton() == false) {
-            retourner = "O";
+            retourner = "O"; //Si il n'y a rien
         }
-        if (DetectionMauvaisBouton() == true) {
-            if (DetectionBouton() == true) {
-                DisparaitreMauvaisBouton();
-                retourner = "X";
-            } else {
-            retourner = "@";
+        if (DetectionMauvaisBouton() == true) { //Si il y a un mauvais bouton
+            if (DetectionBouton() == true) { //Et un bon bouton
+                DisparaitreMauvaisBouton(); //Le mauvais mouton disparait
+                retourner = "X"; //Le bon bouton prend le dessus
+            } else { //Si il n'y a pas de bon bouton
+            retourner = "@"; //Le mauvais bouton s'affiche
             }
         }
-        if (DetectionMauvaisBouton() == false) {
-            if (DetectionBouton() == true) {
-                retourner = "X";
-            } else {
-                retourner = "O";
+        if (DetectionMauvaisBouton() == false) { //Si il n'y a pas de mauvais bouton
+            if (DetectionBouton() == true) { //Et un bon bouton
+                retourner = "X"; //Le bon bouton prend le dessus 
+            } else { //Si il n'y a pas de bon bouton
+                retourner = "O"; //Rien ne s'affiche
             }
         }
         return retourner;
