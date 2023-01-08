@@ -51,10 +51,18 @@ public class Bouton {
             retourner = "O";
         }
         if (DetectionMauvaisBouton() == true) {
+            if (DetectionBouton() == true) {
+                retourner = "X";
+            } else {
             retourner = "@";
+            }
         }
         if (DetectionMauvaisBouton() == false) {
-            retourner = "O";
+            if (DetectionBouton() == true) {
+                retourner = "X";
+            } else {
+                retourner = "O";
+            }
         }
         return retourner;
     }
