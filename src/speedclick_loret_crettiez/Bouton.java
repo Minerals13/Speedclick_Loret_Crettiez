@@ -10,9 +10,11 @@ package speedclick_loret_crettiez;
  */
 public class Bouton {
     boolean Presence;
+    boolean PresenceMauvais;
     
     public Bouton () {
         this.Presence = false;
+        this.PresenceMauvais = false;
     }
     
     public boolean DetectionBouton () {
@@ -23,7 +25,9 @@ public class Bouton {
         Presence =true;
     }
     
-
+public boolean DetectionMauvaisBouton() {
+        return PresenceMauvais;
+}
     
     public void disparaitreBouton (){
         Presence = false;
@@ -36,6 +40,12 @@ public class Bouton {
             retourner = "X";
         }
         if (DetectionBouton() == false) {
+            retourner = "O";
+        }
+        if (DetectionMauvaisBouton() == true) {
+            retourner = "@";
+        }
+        if (DetectionMauvaisBouton() == false) {
             retourner = "O";
         }
         return retourner;
