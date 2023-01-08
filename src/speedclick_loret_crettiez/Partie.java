@@ -48,7 +48,7 @@ public class Partie {
              //On donne 3 chances, au bout du troisème raté le compteur redescend à 0
              //A chaque erreure d'affilée on rentre dans un nouveau if
              //Si les coordonnées sont bonnes, on rentre dans le else if correspondant au 1er, 2e ou 3e essai. On donne alors un point à l'utilisateur et on fait disparaitre le bouton pour la prochaine manche
-            if ((Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)!=Plateau.PresenceBouton(LigneON,ColonneON)) || (Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)!=Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {    //Premier essai. On vérifie que le bouton choisie n'est ni le bon ni le mauvais
+            if ((Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)!=Plateau.PresenceBouton(LigneON,ColonneON)) && (Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)!=Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {    //Premier essai. On vérifie que le bouton choisie n'est ni le bon ni le mauvais
                 System.out.println("Rate, plus que 2 essais"); //Ce n'est pas le bon bouton mais ce n'est pas le piège non plus, l'utilisateur pour re-essayer
                 Plateau.afficherMatriceSurConsole(a, b); //On réaffiche la grille
                 System.out.println("Veuillez choisir la ligne du bouton allumé"); 
@@ -57,7 +57,7 @@ public class Partie {
                 ChoixColonne = scan.nextInt(); 
                 System.out.println("Tu as "+cpt+" points"); //On affiche le nombre de point à chaque tour
                 
-                if (( (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)!=Plateau.PresenceBouton(LigneON,ColonneON))) || (Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)!=Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {    //Deuxième essai, même fonctionnement que le premier, il gagne un point ou perds un point 
+                if (( (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)!=Plateau.PresenceBouton(LigneON,ColonneON))) && (Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)!=Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {    //Deuxième essai, même fonctionnement que le premier, il gagne un point ou perds un point 
                     System.out.println("Encore Rate, plus que 1 essai");
                     Plateau.afficherMatriceSurConsole(a, b);
                     System.out.println("Veuillez choisir la ligne du bouton allumé"); 
@@ -67,13 +67,14 @@ public class Partie {
                     
                     
                     if ( (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)!=Plateau.PresenceBouton(LigneON,ColonneON)) || (Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)!=Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {    //Troisième essai, même fonctionnement que les 2 autres sauf que cette fois, soit il réussi et gagne un point, soit il redescends à 0
-                        System.out.println("Vous avez fait trop d'erreur a la suite");
+                        System.out.println("Vous avez fait trop d'erreurs a la suite");
                         System.out.println("Recommencez a 0");
                         cpt=0; 
-                        Plateau.DisparitionBouton(LigneON, ColonneON);
+                        Plateau.DisparitionBouton(LigneON, ColonneON); //Fin du tour, on supprime les 2 boutons (bon et piégé)
+                        Plateau.DisparitionMauvaisBouton(BadLigne,BadColonne);
                         
                         
-                    } else if  (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)==Plateau.PresenceBouton(LigneON,ColonneON)) { //C'est validé au 3e essai
+                    } else if  (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)==Plateau.PresenceBouton(LigneON,ColonneON)) { // 3e essai Si 
                         cpt+=1; //Si c'est la bonne case, l'utilisateur gagne un point
                         System.out.println("Vous avez trouve le bon bouton");
                         Plateau.DisparitionBouton(LigneON, ColonneON); //Et on fait disparaitre le bouton
