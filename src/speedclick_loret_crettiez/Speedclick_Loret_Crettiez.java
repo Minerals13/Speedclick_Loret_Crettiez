@@ -23,8 +23,9 @@ public class Speedclick_Loret_Crettiez {
     
     int TailleLigne = scan.nextInt();
     int TailleColonne = scan.nextInt();
+    Partie Jouer = new Partie(TailleLigne,TailleColonne);
     
-    LancerPartie(TailleLigne,TailleColonne);
+    Jouer.LancerPartie(TailleLigne,TailleColonne);
     
     
     
