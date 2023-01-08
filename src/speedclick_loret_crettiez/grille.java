@@ -103,4 +103,36 @@ public class grille {
     
     
     
+    public int LigneAllumeeMauvais (int a) {  //Permets de déterminer un entier au hasard, qui correspond à un indice de ligne dans notre matrice pour notre mauvais bouton qui s'allume
+        int TailleLigne=a;
+        Random random = new Random(); 
+        int BadLigne;
+        BadLigne = random.nextInt(TailleLigne);         //On choisit un entier entre 0 et la taille de la matrice+1. Cette taille est donnée par l'utilisateur en entrée de programme      
+    return BadLigne; //On retourne l'indice de ligne du mauvais bouton allumé
+    }
+    
+    public int ColonneAllumeeMauvais (int b) { //Au même titre que LigneAllumeeMauvais, ColonneAllumeeMauvais permets de donner l'indice de la colonne du mauvais bouton qu'on va allumer
+        int TailleColonne=b;
+        Random random = new Random();
+        int BadColonne;
+        BadColonne = random.nextInt(TailleColonne);
+    return BadColonne; //On retourne l'indice de colonne du mauvais bouton allumé
+    }
+    
+    public void PlacerMauvaisBouton (int BadLigne,int BadColonne) {  //Permets de placer notre mauvais bouton aux coordonnées données par LigneAllumeeMauvais et ColonneAllumeeMauvais
+        matrice[BadLigne][BadColonne].PlacerMauvaisBouton();
+    }
+    
+    public boolean PresenceMauvaisBouton (int BadLigne,int BadColonne) {  //Si il y a un mauvais bouton aux coordonnées mises en paramètre, on renverra true. gGère les coordonnées déterminées automatiquement
+        if (matrice[BadLigne][BadColonne].DetectionMauvaisBouton()==true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void DisparitionMauvaisBouton (int BadLigne, int BadColonne) {  //Fais disparaitre le mauvais bouton en certaines coordonnées données en paramètre
+        matrice[BadLigne][BadColonne].DisparaitreMauvaisBouton();
+    }
+    
     }
