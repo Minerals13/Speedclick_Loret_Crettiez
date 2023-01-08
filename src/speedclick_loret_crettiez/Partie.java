@@ -44,6 +44,8 @@ public class Partie {
                 Plateau.PlacerMauvaisBouton(BadLigne, BadColonne);
             }
             
+            System.out.println("Tu as "+cpt+" points"); //On affiche le nombre de point à chaque tour
+            
             System.out.println("1er essai : Veuillez choisir la ligne du bouton allume"); 
             int ChoixLigne = scan.nextInt(); //On demande à l'utilisateur l'indice de la ligne de la case dans laquelle le bouton allumé
             System.out.println("1er essai : Veuillez choisir la colonne du bouton allume");  
@@ -61,7 +63,7 @@ public class Partie {
                 ChoixLigne = scan.nextInt(); 
                 System.out.println("2e essai : Veuillez choisir la colonne du bouton allumé");  
                 ChoixColonne = scan.nextInt(); 
-                System.out.println("Tu as "+cpt+" points"); //On affiche le nombre de point à chaque tour
+                
                 
                 if (( (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)!=Plateau.PresenceBouton(LigneON,ColonneON))) && (Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)!=Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {    //Deuxième essai, même fonctionnement que le premier, il gagne un point ou perds un point 
                     System.out.println("Encore Rate, plus que 1 essai");
@@ -96,7 +98,7 @@ public class Partie {
                     Plateau.DisparitionBouton(LigneON, ColonneON); }
                     Plateau.DisparitionMauvaisBouton(BadLigne,BadColonne);
                 } else if ((Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)==Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {
-                    cpt=-1;
+                    cpt-=1;
                     Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne); //Et on fait disparaitre le bouton piègé
                     System.out.println("Vous êtes tombé dans le piège, vous perdez un point");
                     Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne); 
@@ -107,7 +109,7 @@ public class Partie {
                 Plateau.DisparitionBouton(LigneON, ColonneON);  
                 Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne); 
             } else if ((Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)==Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {
-                        cpt=-1;
+                        cpt-=1;
                         Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne); //Et on fait disparaitre le bouton piègé
                         System.out.println("Vous êtes tombé dans le piège, vous perdez un point");
                         Plateau.DisparitionBouton(LigneON, ColonneON);
@@ -117,6 +119,8 @@ public class Partie {
                 Plateau.DisparitionBouton(LigneON, ColonneON);  
                 Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne);  
             }
+            Plateau.DisparitionBouton(LigneON, ColonneON);  
+            Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne);  
         //Puis on recommence avec des nouvelles coordonnées, jusqu'à ce qu'on ait 15 points
   
         }

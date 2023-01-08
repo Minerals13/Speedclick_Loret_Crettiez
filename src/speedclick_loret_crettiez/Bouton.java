@@ -50,6 +50,7 @@ public class Bouton {
         if (DetectionBouton() == false) {
             retourner = "O"; //Si il n'y a rien
         }
+       
         if (DetectionMauvaisBouton() == true) { //Si il y a un mauvais bouton
             if (DetectionBouton() == true) { //Et un bon bouton
                 DisparaitreMauvaisBouton(); //Le mauvais mouton disparait
