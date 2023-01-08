@@ -36,7 +36,7 @@ public class Partie {
             
             Plateau.PlacerBouton(LigneON, ColonneON); //On place notre bouton de coordonnées déterminées juste au dessus , sur la grille
             Plateau.afficherMatriceSurConsole(a, b); //On affiche la grille avec le bouton avec en paramètre la taille de la matrice
-            Plateau.PlacerMauvaisBouton(BadLigne, BadColonne);
+            //Plateau.PlacerMauvaisBouton(BadLigne, BadColonne);
             
             System.out.println("Veuillez choisir la ligne du bouton allume"); 
             int ChoixLigne = scan.nextInt(); //On demande à l'utilisateur l'indice de la ligne de la case dans laquelle le bouton allumé
@@ -66,7 +66,7 @@ public class Partie {
                     ChoixColonne = scan.nextInt(); 
                     
                     
-                    if ( (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)!=Plateau.PresenceBouton(LigneON,ColonneON)) || (Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)!=Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {    //Troisième essai, même fonctionnement que les 2 autres sauf que cette fois, soit il réussi et gagne un point, soit il redescends à 0
+                    if ( (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)!=Plateau.PresenceBouton(LigneON,ColonneON)) || (Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)==Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {    //Troisième essai, même fonctionnement que les 2 autres sauf que cette fois, soit il réussi et gagne un point, soit il redescends à 0
                         System.out.println("Vous avez fait trop d'erreurs a la suite");
                         System.out.println("Recommencez a 0");
                         cpt=0; 
@@ -74,14 +74,11 @@ public class Partie {
                         Plateau.DisparitionMauvaisBouton(BadLigne,BadColonne);
                         
                         
-                    } else if  (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)==Plateau.PresenceBouton(LigneON,ColonneON)) { // 3e essai Si 
+                    } else if  (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)==Plateau.PresenceBouton(LigneON,ColonneON)) { //Si 
                         cpt+=1; //Si c'est la bonne case, l'utilisateur gagne un point
                         System.out.println("Vous avez trouve le bon bouton");
                         Plateau.DisparitionBouton(LigneON, ColonneON); //Et on fait disparaitre le bouton
-                    } else if ((Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)==Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) { //Au 3e essai il selectionne le piège
-                        cpt=-1;
-                        Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne); //Et on fait disparaitre le bouton piègé
-                        System.out.println("Vous êtes tombé dans le piège, tu perds un point");
+                   
                     }
                         
                     
