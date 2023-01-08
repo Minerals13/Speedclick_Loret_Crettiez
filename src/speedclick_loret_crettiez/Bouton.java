@@ -21,11 +21,11 @@ public class Bouton {
         return Presence;
     }
     
-    public void placerBouton () {
+    public void PlacerBouton () {
         Presence =true;
     }
     
-    public void disparaitreBouton (){
+    public void DisparaitreBouton (){
         Presence = false;
     } 
     
