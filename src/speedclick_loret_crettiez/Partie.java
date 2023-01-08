@@ -45,7 +45,8 @@ public class Partie {
              //A chaque erreure d'affilée on rentre dans un nouveau if
              //Si les coordonnées sont bonnes, on rentre dans le else if correspondnt au 1er, 2e ou 3e essai. On donne alors un point à l'utilisateur et on fait disparaitre le bouton pour la prochaine manche
             if ( (Plateau.PresenceBouton(ChoixLigne,ChoixColonne)!=Plateau.PresenceBouton(LigneON,ColonneON))) {    //Premier essai
-                System.out.println("Raté, reessaye"); 
+                System.out.println("Raté, reessaye");
+                Plateau.afficherMatriceSurConsole(a, b); //On réaffiche la grille
                 System.out.println("Veuillez choisir la ligne du bouton allumé"); 
                 ChoixLigne = scan.nextInt(); 
                 System.out.println("Veuillez choisir la colonne du bouton allumé");  
@@ -54,6 +55,7 @@ public class Partie {
                 
                 if ( (Plateau.PresenceBouton(ChoixLigne,ChoixColonne)!=Plateau.PresenceBouton(LigneON,ColonneON))) {    //Deuxième essai 
                     System.out.println("Encore Raté, reessaye");
+                    Plateau.afficherMatriceSurConsole(a, b);
                     System.out.println("Veuillez choisir la ligne du bouton allumé"); 
                     ChoixLigne = scan.nextInt(); 
                     System.out.println("Veuillez choisir la colonne du bouton allumé");  
