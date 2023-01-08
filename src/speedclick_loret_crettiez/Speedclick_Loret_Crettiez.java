@@ -23,6 +23,7 @@ public class Speedclick_Loret_Crettiez {
     
     int TailleLigne = scan.nextInt();
     int TailleColonne = scan.nextInt();
+    int NbrPoints = scan.nextInt();
     Partie Jouer = new Partie(TailleLigne,TailleColonne);
     
     
