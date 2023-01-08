@@ -32,7 +32,7 @@ public class Partie {
             int ColonneON=Plateau.ColonneAllumee(b); //Pareil mais pour la colonne
         
             Plateau.PlacerBouton(LigneON, ColonneON); //On place notre bouton de coordonnées déterminées juste au dessus , sur la grille
-            Plateau.afficherMatriceSurConsole(a, b); //On affiche la grille avec le bouton
+            Plateau.afficherMatriceSurConsole(a, b); //On affiche la grille avec le bouton avec en paramètre la taille de la matrice
             
             System.out.println("Veuillez choisir la ligne du bouton allumé"); 
             int ChoixLigne = scan.nextInt(); //On demande à l'utilisateur l'indice de la ligne de la case dans laquelle le bouton allumé
@@ -44,16 +44,16 @@ public class Partie {
              //On donne 3 chances, au bout du troisème raté le compteur redescend à 0
              //A chaque erreure d'affilée on rentre dans un nouveau if
              //Si les coordonnées sont bonnes, on rentre dans le else if correspondnt au 1er, 2e ou 3e essai. On donne alors un point à l'utilisateur et on fait disparaitre le bouton pour la prochaine manche
-            if ( (Plateau.PresenceBouton(ChoixLigne,ChoixColonne)!=Plateau.PresenceBouton(LigneON,ColonneON))) {    //Premier essai
+            if ( (Plateau.PresenceBouton2(ChoixLigne,ChoixColonne)!=Plateau.PresenceBouton(LigneON,ColonneON))) {    //Premier essai
                 System.out.println("Raté, reessaye");
                 Plateau.afficherMatriceSurConsole(a, b); //On réaffiche la grille
                 System.out.println("Veuillez choisir la ligne du bouton allumé"); 
-                ChoixLigne = scan.nextInt(); 
+                ChoixLigne = scan.nextInt(); //On ajoute un -1 car sinon, si le l'utilisateur sélectionne la 4e ligne d'une matrice 4x4, c'est comme si on cherchait la 5e ligne car la matrice commence à 0 et est de taille n-1
                 System.out.println("Veuillez choisir la colonne du bouton allumé");  
                 ChoixColonne = scan.nextInt(); 
                 
                 
-                if ( (Plateau.PresenceBouton(ChoixLigne,ChoixColonne)!=Plateau.PresenceBouton(LigneON,ColonneON))) {    //Deuxième essai 
+                if ( (Plateau.PresenceBouton2(ChoixLigne,ChoixColonne)!=Plateau.PresenceBouton(LigneON,ColonneON))) {    //Deuxième essai 
                     System.out.println("Encore Raté, reessaye");
                     Plateau.afficherMatriceSurConsole(a, b);
                     System.out.println("Veuillez choisir la ligne du bouton allumé"); 
@@ -62,20 +62,21 @@ public class Partie {
                     ChoixColonne = scan.nextInt(); 
                 
                     
-                    if ( (Plateau.PresenceBouton(ChoixLigne,ChoixColonne)!=Plateau.PresenceBouton(LigneON,ColonneON))) {    //Troisième essai 
+                    if ( (Plateau.PresenceBouton2(ChoixLigne,ChoixColonne)!=Plateau.PresenceBouton(LigneON,ColonneON))) {    //Troisième essai 
                         System.out.println("Tu as fais trop d'erreur à la suite, recommence");
                         cpt=0; 
-                    } else if  (Plateau.PresenceBouton(ChoixLigne,ChoixColonne)==Plateau.PresenceBouton(LigneON,ColonneON)) { //C'est validé au 3e essai
+                        Plateau.DisparitionBouton(LigneON, ColonneON); 
+                    } else if  (Plateau.PresenceBouton2(ChoixLigne,ChoixColonne)==Plateau.PresenceBouton(LigneON,ColonneON)) { //C'est validé au 3e essai
                     cpt+=1; //Si c'est la bonne case, l'utilisateur gagne un point
                     Plateau.DisparitionBouton(LigneON, ColonneON); } //Et on fait disparaitre le bouton
                     
                     
-                }else if  (Plateau.PresenceBouton(ChoixLigne,ChoixColonne)==Plateau.PresenceBouton(LigneON,ColonneON)) { //C'est validé au 2e essai
+                }else if  (Plateau.PresenceBouton2(ChoixLigne,ChoixColonne)==Plateau.PresenceBouton(LigneON,ColonneON)) { //C'est validé au 2e essai
                     cpt+=1;
                     Plateau.DisparitionBouton(LigneON, ColonneON); }
                     
                     
-            }else if  (Plateau.PresenceBouton(ChoixLigne,ChoixColonne)==Plateau.PresenceBouton(LigneON,ColonneON)) { //C'est validé au 1er essai
+            }else if  (Plateau.PresenceBouton2(ChoixLigne,ChoixColonne)==Plateau.PresenceBouton(LigneON, ColonneON)) { //C'est validé au 1er essai
                 cpt+=1;
                 Plateau.DisparitionBouton(LigneON, ColonneON);       
             }    
