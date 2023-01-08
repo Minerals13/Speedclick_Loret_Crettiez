@@ -4,6 +4,8 @@
  */
 package speedclick_loret_crettiez;
 
+import java.util.Scanner;
+
 /**
  *
  * @author emili
@@ -15,7 +17,19 @@ public class Speedclick_Loret_Crettiez {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    } String lardon;
+    
+    System.out.println("Quelle taille de matrice voulez vous ? Renseignez le nombre de ligne puis de colonne");
+    Scanner scan = new Scanner(System.in);
+    
+    int TailleLigne = scan.nextInt();
+    int TailleColonne = scan.nextInt();
+    
+    LancerPartie(TailleLigne,TailleColonne);
+    
+    
+    
+    
+    } 
     
     
     
