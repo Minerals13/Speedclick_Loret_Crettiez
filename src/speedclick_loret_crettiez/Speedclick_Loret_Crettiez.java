@@ -23,11 +23,13 @@ public class Speedclick_Loret_Crettiez {
     
     int TailleLigne = scan.nextInt();
     int TailleColonne = scan.nextInt();
+    
+    System.out.println("En combien de points voulez vous jouer?");
     int NbrPoints = scan.nextInt();
-    Partie Jouer = new Partie(TailleLigne,TailleColonne);
+    Partie Jouer = new Partie(TailleLigne,TailleColonne, NbrPoints);
     
     
-    Jouer.LancerPartie(TailleLigne,TailleColonne);
+    Jouer.LancerPartie(TailleLigne,TailleColonne, NbrPoints);
     
     
     

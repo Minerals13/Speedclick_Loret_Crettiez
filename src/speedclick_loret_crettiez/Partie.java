@@ -14,12 +14,12 @@ public class Partie {
     private grille Plateau;
     
     
-    public Partie (int TailleLigne, int TailleColonne) {
+    public Partie (int TailleLigne, int TailleColonne, int NombrePoints) {
         this.Plateau = new grille(TailleLigne, TailleColonne);
         
     }
 
-    public void LancerPartie (int TailleLigne, int TailleColonne) {  //méthode qui permets de jouer à une partie classique. Dedans on détermine des nouvelles coordonnées de bouton à chaque fois qu'il est trouvé, et on affiche la nouvelle grille à chaque fois        
+    public void LancerPartie (int TailleLigne, int TailleColonne, int NombrePoints) {  //méthode qui permets de jouer à une partie classique. Dedans on détermine des nouvelles coordonnées de bouton à chaque fois qu'il est trouvé, et on affiche la nouvelle grille à chaque fois        
         int a = TailleLigne;
         int b = TailleColonne;
         int cpt =0; //C'est le compteur pour le nombre de point de l'utilisateur
@@ -27,7 +27,7 @@ public class Partie {
         
         
         
-        while (cpt<=15) {  
+        while (cpt < NombrePoints) {  
             int LigneON=Plateau.LigneAllumee(a); //on appelle la méthode LigneAllumée pour déterminer quel indice de ligne notre bouton va prendre
             int ColonneON=Plateau.ColonneAllumee(b); //Pareil mais pour la colonne
             int BadLigne=Plateau.LigneAllumeeMauvais(a);
