@@ -31,7 +31,8 @@ public class Partie {
         while (cpt < NombrePoints) {  
             int LigneON=Plateau.LigneAllumee(a); //on appelle la méthode LigneAllumée pour déterminer quel indice de ligne notre bouton va prendre
             int ColonneON=Plateau.ColonneAllumee(b); //Pareil mais pour la colonne
-            ;
+            int BadLigne=Plateau.LigneAllumeeMauvais(a);
+            int BadColonne=Plateau.ColonneAllumeeMauvais(b); 
             
             
             Plateau.PlacerBouton(LigneON, ColonneON); //On place notre bouton de coordonnées déterminées juste au dessus , sur la grille
@@ -40,8 +41,6 @@ public class Partie {
             Random random = new Random();
             int Proba = random.nextInt(9); //Chiffre entre 0 et 9
             if (Proba==5) { //On a une chance sur 10 de placer une bouton piégé
-                int BadLigne=Plateau.LigneAllumeeMauvais(a);
-                int BadColonne=Plateau.ColonneAllumeeMauvais(b);   
                 Plateau.PlacerMauvaisBouton(BadLigne, BadColonne);
             }
             
