@@ -63,8 +63,8 @@ public class Partie {
                 
                     
                     if ( (Plateau.PresenceBouton2(ChoixLigne,ChoixColonne)!=Plateau.PresenceBouton(LigneON,ColonneON))) {    //Troisième essai 
-                        System.out.println("Tu as fais trop d'erreur à la suite");
-                        System.out.println("Recommence a 0");
+                        System.out.println("Vous avez fait trop d'erreur a la suite");
+                        System.out.println("Recommencez a 0");
                         cpt=0; 
                         Plateau.DisparitionBouton(LigneON, ColonneON); 
                     } else if  (Plateau.PresenceBouton2(ChoixLigne,ChoixColonne)==Plateau.PresenceBouton(LigneON,ColonneON)) { //C'est validé au 3e essai
