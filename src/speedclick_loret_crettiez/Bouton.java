@@ -25,13 +25,21 @@ public class Bouton {
         Presence =true;
     }
     
-public boolean DetectionMauvaisBouton() {
-        return PresenceMauvais;
-}
-    
     public void disparaitreBouton (){
         Presence = false;
+    } 
+    
+    public boolean DetectionMauvaisBouton() {
+        return PresenceMauvais;
     }   
+    
+    public void PlacerMauvaisBouton () {
+        PresenceMauvais =true;
+    }
+    
+    public void DisparaitreMauvaisBouton (){
+        PresenceMauvais = false;
+    } 
     
     @Override
     public String toString() {
