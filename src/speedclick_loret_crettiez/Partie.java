@@ -36,7 +36,7 @@ public class Partie {
             
             Plateau.PlacerBouton(LigneON, ColonneON); //On place notre bouton de coordonnées déterminées juste au dessus , sur la grille
             Plateau.afficherMatriceSurConsole(a, b); //On affiche la grille avec le bouton avec en paramètre la taille de la matrice
-            //Plateau.PlacerMauvaisBouton(BadLigne, BadColonne);
+            Plateau.PlacerMauvaisBouton(BadLigne, BadColonne);
             
             System.out.println("Veuillez choisir la ligne du bouton allume"); 
             int ChoixLigne = scan.nextInt(); //On demande à l'utilisateur l'indice de la ligne de la case dans laquelle le bouton allumé
@@ -74,10 +74,11 @@ public class Partie {
                         Plateau.DisparitionMauvaisBouton(BadLigne,BadColonne);
                         
                         
-                    } else if  (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)==Plateau.PresenceBouton(LigneON,ColonneON)) { //Si 
+                    } else if  (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)==Plateau.PresenceBouton(LigneON,ColonneON)) { //3e Essai, si on trouve le bon bouton ;
                         cpt+=1; //Si c'est la bonne case, l'utilisateur gagne un point
-                        System.out.println("Vous avez trouve le bon bouton");
+                        System.out.println("Troisieme essai : Vous avez finalement trouve le bon bouton");
                         Plateau.DisparitionBouton(LigneON, ColonneON); //Et on fait disparaitre le bouton
+                        Plateau.DisparitionMauvaisBouton(BadLigne,BadColonne);
                    
                     }
                         
@@ -85,22 +86,25 @@ public class Partie {
                     
                 }else if  (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)==Plateau.PresenceBouton(LigneON,ColonneON)) { //C'est validé au 2e essai
                     cpt+=1;
-                    System.out.println("Vous avez trouve le bon bouton");
+                    System.out.println("Deuxieme essai : Vous avez trouve le bon bouton");
                     Plateau.DisparitionBouton(LigneON, ColonneON); }
+                    Plateau.DisparitionMauvaisBouton(BadLigne,BadColonne);
                 } else if ((Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)==Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {
-                        cpt=-1;
-                        Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne); //Et on fait disparaitre le bouton piègé
-                        System.out.println("Vous êtes tombé dans le piège, tu perds un point");
-                    
+                    cpt=-1;
+                    Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne); //Et on fait disparaitre le bouton piègé
+                    System.out.println("Vous êtes tombé dans le piège, vous perdez un point");
+                    Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne); 
                     
             }else if  (Plateau.PresenceBouton2(ChoixLigne - 1,ChoixColonne - 1)==Plateau.PresenceBouton(LigneON, ColonneON)) { //C'est validé au 1er essai
                 cpt+=1;
                 System.out.println("Vous avez trouve le bon bouton");
-                Plateau.DisparitionBouton(LigneON, ColonneON);       
+                Plateau.DisparitionBouton(LigneON, ColonneON);  
+                Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne); 
             } else if ((Plateau.PresenceBouton2(ChoixLigne-1, ChoixColonne-1)==Plateau.PresenceMauvaisBouton(BadLigne,BadColonne))) {
-                        cpt=0;
+                        cpt=-1;
                         Plateau.DisparitionMauvaisBouton(BadLigne, BadColonne); //Et on fait disparaitre le bouton piègé
                         System.out.println("Vous êtes tombé dans le piège, vous perdez un point");
+                        Plateau.DisparitionBouton(LigneON, ColonneON);
             }   
             
         //Puis on recommence avec des nouvelles coordonnées, jusqu'à ce qu'on ait 15 points
