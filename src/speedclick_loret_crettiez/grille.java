@@ -65,11 +65,11 @@ public class grille {
             for (int j=0;j<colonne;j++) {
                 System.out.print(matrice[i][j]+" ");
             }
-            System.out.println(" "+i+1); //à la fin de chaque ligne, on affiche l'indice de cette même ligne
+            System.out.println(" "+(i+1)); //à la fin de chaque ligne, on affiche l'indice de cette même ligne
         }
-        for (int i=0;i<=colonne;i++){ //On veut aussi afficher l'indice des colonnes donc après avoir print la matrice et les indices de ligne
+        for (int i=0;i<colonne;i++){ //On veut aussi afficher l'indice des colonnes donc après avoir print la matrice et les indices de ligne
             int cpt=i+1;
-            System.out.print(cpt+" "); //On va print les indices des b colonnes (b donne le nombre de colonne de la matrie, choisi par l'utilisateur)
+            System.out.print(cpt+" "); //On va print les indices des b colonnes (b donne le nombre de colonne de la matrice, choisi par l'utilisateur)
         }
     }
     
