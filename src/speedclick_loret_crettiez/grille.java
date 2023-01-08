@@ -79,7 +79,7 @@ public class grille {
     }
     
     
-    public boolean PresenceBouton (int LigneON,int ColonneON) {  
+    public boolean PresenceBouton (int LigneON,int ColonneON) {  //Si il y a un bouton au coordonnées mises en paramètre, on renverra true. gGère les coordonnées déterminées automatiquement
         if (matrice[LigneON][ColonneON].presenceBouton()==true) {
             return true;
         } else {
@@ -87,7 +87,16 @@ public class grille {
         }
     }
     
-    public void DisparitionBouton (int LigneON, int ColonneON) {
+    
+    public boolean PresenceBouton2 (int ChoixLigne, int ChoixColonne) {  //Si il y a un bouton au coordonnées mises en paramètre, on renverra true. gGère les coordonnées données par l'utilisateur 
+        if (matrice[ChoixLigne][ChoixColonne].presenceBouton()==true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void DisparitionBouton (int LigneON, int ColonneON) {  //Fais disparaitre le bouton en certaines coordonnées données en paramètre
         matrice[LigneON][ColonneON].disparaitreBouton();
     }
     
