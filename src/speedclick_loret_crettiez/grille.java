@@ -75,7 +75,7 @@ public class grille {
     
     
     public void PlacerBouton (int LigneON,int ColonneON) {  //Permets de placer notre bouton aux coordonnées données par LigneAllumee et ColonneAllumee
-        matrice[LigneON][ColonneON].placerBouton();
+        matrice[LigneON][ColonneON].PlacerBouton();
     }
     
     
@@ -97,7 +97,7 @@ public class grille {
     }
     
     public void DisparitionBouton (int LigneON, int ColonneON) {  //Fais disparaitre le bouton en certaines coordonnées données en paramètre
-        matrice[LigneON][ColonneON].disparaitreBouton();
+        matrice[LigneON][ColonneON].DisparaitreBouton();
     }
     
     
