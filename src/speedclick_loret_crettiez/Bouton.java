@@ -52,6 +52,7 @@ public class Bouton {
         }
         if (DetectionMauvaisBouton() == true) {
             if (DetectionBouton() == true) {
+                DisparaitreMauvaisBouton();
                 retourner = "X";
             } else {
             retourner = "@";
