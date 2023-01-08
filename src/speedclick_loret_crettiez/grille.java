@@ -80,7 +80,7 @@ public class grille {
     
     
     public boolean PresenceBouton (int LigneON,int ColonneON) {  //Si il y a un bouton au coordonnées mises en paramètre, on renverra true. gGère les coordonnées déterminées automatiquement
-        if (matrice[LigneON][ColonneON].presenceBouton()==true) {
+        if (matrice[LigneON][ColonneON].DetectionBouton()==true) {
             return true;
         } else {
             return false;
@@ -89,7 +89,7 @@ public class grille {
     
     
     public boolean PresenceBouton2 (int ChoixLigne, int ChoixColonne) {  //Si il y a un bouton au coordonnées mises en paramètre, on renverra true. gGère les coordonnées données par l'utilisateur 
-        if (matrice[ChoixLigne][ChoixColonne].presenceBouton()==true) {
+        if (matrice[ChoixLigne][ChoixColonne].DetectionBouton()==true) {
             return true;
         } else {
             return false;

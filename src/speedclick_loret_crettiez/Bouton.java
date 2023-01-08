@@ -15,7 +15,7 @@ public class Bouton {
         this.Presence = false;
     }
     
-    public boolean presenceBouton () {
+    public boolean DetectionBouton () {
         return Presence;
     }
     
@@ -32,10 +32,10 @@ public class Bouton {
     @Override
     public String toString() {
         String retourner = null;
-        if (presenceBouton() == true) {
+        if (DetectionBouton() == true) {
             retourner = "X";
         }
-        if (presenceBouton() == false) {
+        if (DetectionBouton() == false) {
             retourner = "O";
         }
         return retourner;
